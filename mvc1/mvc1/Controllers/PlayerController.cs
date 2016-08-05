@@ -68,7 +68,7 @@ namespace mvc.Controllers
             row.Age = player.Age;
             db.SaveChanges();
 
-            return RedirectToAction("Details", new { id = row.Id });
+            return RedirectToAction("List");
         }
 
         [HttpGet]
@@ -88,7 +88,7 @@ namespace mvc.Controllers
             });
             db.SaveChanges();
 
-            return RedirectToAction("Details", new { id = row.Id });
+            return RedirectToAction("List");
         }
 
         public ActionResult Remove(Player player)
