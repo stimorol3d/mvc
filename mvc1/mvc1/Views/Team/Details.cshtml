@@ -1,0 +1,31 @@
+﻿@model mvc.Models.Team
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<table class="table">
+
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+
+    <!--<tr>
+        <td><b>Id</b></td>
+        <td>@Model.Id</td>
+    </tr>-->
+
+    <tr>
+        <td><b>Name</b></td>
+        <td>@Model.Name</td>
+    </tr>
+
+</table>
+
+<div class="form-group" role="group">
+    @Html.ActionLink("Back to list", "List", null, new { @class = "btn btn-default", @role = "button" })
+    @Html.ActionLink("Edit team", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary", @role = "button" })
+</div>
