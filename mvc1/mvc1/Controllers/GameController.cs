@@ -42,7 +42,7 @@ namespace mvc1.Controllers
 
             ViewBag.teams1 = new SelectList(db.Teams, "Id", "Name");
             ViewBag.teams2 = new SelectList(db.Teams, "Id", "Name");
-            ViewBag.stadiums = new SelectList(db.Stadiums, "Id", "Name");
+            ViewBag.stadiums = new SelectList(db.Stadiums.Select(s => new { s.Id, Name = s.Name + " - " + s.City }), "Id", "Name");
 
             return View(row);
         }
@@ -65,7 +65,7 @@ namespace mvc1.Controllers
         {
             ViewBag.teams1 = new SelectList(db.Teams, "Id", "Name");
             ViewBag.teams2 = new SelectList(db.Teams, "Id", "Name");
-            ViewBag.stadiums = new SelectList(db.Stadiums, "Id", "Name");
+            ViewBag.stadiums = new SelectList(db.Stadiums.Select(s => new { s.Id, Name = s.Name + " - " + s.City }), "Id", "Name");
 
             return View("Edit", null);
         }
