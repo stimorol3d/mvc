@@ -24,7 +24,7 @@ namespace mvc1.Controllers
 
         public ActionResult Details(int id)
         {
-            Stadium row = db.Stadiums.Find(id);
+            var row = db.Stadiums.Find(id);
 
             if (row == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
@@ -35,7 +35,7 @@ namespace mvc1.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Stadium row = db.Stadiums.Find(id);
+            var row = db.Stadiums.Find(id);
 
             if (row == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
@@ -46,7 +46,7 @@ namespace mvc1.Controllers
         [HttpPost]
         public ActionResult Edit(Stadium stadium)
         {
-            Stadium row = db.Stadiums.Find(stadium.Id);
+            var row = db.Stadiums.Find(stadium.Id);
             row.Name = stadium.Name;
             row.City = stadium.City;
             db.SaveChanges();
@@ -57,13 +57,14 @@ namespace mvc1.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View("Edit", null);
+            var row = new Stadium() { Name = "New stadium" };
+            return View("Edit", row);
         }
 
         [HttpPost]
         public ActionResult Create(Stadium stadium)
         {
-            Stadium row = db.Stadiums.Add(new Stadium() {
+            var row = db.Stadiums.Add(new Stadium() {
                 Name = stadium.Name,
                 City = stadium.City
             });

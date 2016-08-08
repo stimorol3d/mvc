@@ -24,7 +24,7 @@ namespace mvc.Controllers
 
         public ActionResult Details(int id)
         {
-            Team row = db.Teams.Find(id);
+            var row = db.Teams.Find(id);
 
             if (row == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
@@ -36,7 +36,7 @@ namespace mvc.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Team row = db.Teams.Find(id);
+            var row = db.Teams.Find(id);
 
             if (row == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
@@ -47,7 +47,7 @@ namespace mvc.Controllers
         [HttpPost]
         public ActionResult Edit(Team team)
         {
-            Team row = db.Teams.Find(team.Id);
+            var row = db.Teams.Find(team.Id);
             row.Name = team.Name;
             db.SaveChanges();
 
@@ -57,13 +57,14 @@ namespace mvc.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View("Edit", null);
+            var row = new Team() { Name = "New team" };
+            return View("Edit", row);
         }
 
         [HttpPost]
         public ActionResult Create(Team team)
         {
-            Team row = db.Teams.Add(new Team() { Name = team.Name } );
+            var row = db.Teams.Add(new Team() { Name = team.Name } );
             db.SaveChanges();
 
             return RedirectToAction("List");

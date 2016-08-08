@@ -24,7 +24,7 @@ namespace mvc1.Controllers
 
         public ActionResult Details(int id)
         {
-            Game row = db.Games.Find(id);
+            var row = db.Games.Find(id);
 
             if (row == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
@@ -35,7 +35,7 @@ namespace mvc1.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Game row = db.Games.Find(id);
+            var row = db.Games.Find(id);
 
             if (row == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
@@ -50,7 +50,7 @@ namespace mvc1.Controllers
         [HttpPost]
         public ActionResult Edit(Game game)
         {
-            Game row = db.Games.Find(game.Id);
+            var row = db.Games.Find(game.Id);
             row.Team1_Id = game.Team1_Id;
             row.Team2_Id = game.Team2_Id;
             row.StadiumId = game.StadiumId;
@@ -63,17 +63,21 @@ namespace mvc1.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            var row = new Game()
+            {
+                DateStart = DateTime.Now
+            };
             ViewBag.teams1 = new SelectList(db.Teams, "Id", "Name");
             ViewBag.teams2 = new SelectList(db.Teams, "Id", "Name");
             ViewBag.stadiums = new SelectList(db.Stadiums.Select(s => new { s.Id, Name = s.Name + " - " + s.City }), "Id", "Name");
 
-            return View("Edit", null);
+            return View("Edit", row);
         }
 
         [HttpPost]
         public ActionResult Create(Game game)
         {
-            Game row = db.Games.Add(new Game()
+            var row = db.Games.Add(new Game()
             {
                 Team1_Id = game.Team1_Id,
                 Team2_Id = game.Team2_Id,

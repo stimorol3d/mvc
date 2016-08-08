@@ -38,7 +38,7 @@ namespace mvc.Controllers
 
         public ActionResult Details(int id)
         {
-            Player row = db.Players.Find(id);
+            var row = db.Players.Find(id);
 
             if (row == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
@@ -49,7 +49,7 @@ namespace mvc.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Player row = db.Players.Find(id);
+            var row = db.Players.Find(id);
 
             if (row == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
@@ -62,7 +62,7 @@ namespace mvc.Controllers
         [HttpPost]
         public ActionResult Edit(Player player)
         {
-            Player row = db.Players.Find(player.Id);
+            var row = db.Players.Find(player.Id);
             row.TeamId = player.TeamId;
             row.Name = player.Name;
             row.Age = player.Age;
@@ -74,14 +74,19 @@ namespace mvc.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            var row = new Player()
+            {
+                Name = "New player",
+                Age = 18
+            };
             ViewBag.teams = new SelectList(db.Teams, "Id", "Name");
-            return View("Edit", null);
+            return View("Edit", row);
         }
 
         [HttpPost]
         public ActionResult Create(Player player)
         {
-            Player row = db.Players.Add(new Player() {
+            var row = db.Players.Add(new Player() {
                 TeamId = player.TeamId,
                 Name = player.Name,
                 Age = player.Age
