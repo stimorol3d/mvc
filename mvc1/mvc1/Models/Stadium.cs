@@ -1,4 +1,4 @@
-namespace mvc.Models
+namespace mvc1.Models
 {
     using System;
     using System.Collections.Generic;
@@ -9,6 +9,12 @@ namespace mvc.Models
     [Table("Stadium")]
     public partial class Stadium
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Stadium()
+        {
+            Game = new HashSet<Game>();
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -18,5 +24,8 @@ namespace mvc.Models
         [Required]
         [StringLength(50)]
         public string City { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Game> Game { get; set; }
     }
 }

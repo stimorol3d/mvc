@@ -1,0 +1,32 @@
+﻿@model mvc1.Models.Game
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+
+        <label for="Team">Team 1:</label>
+        @Html.DropDownListFor(model => model.Team1_Id, ViewBag.teams1 as SelectList, null, new { @class = "form-control" })
+
+        <label for="Team1">Team 2:</label>
+        @Html.DropDownListFor(model => model.Team2_Id, ViewBag.teams2 as SelectList, null, new { @class = "form-control" })
+
+        <label for="Stadium">Stadium:</label>
+        @Html.DropDownListFor(model => model.StadiumId, ViewBag.stadiums as SelectList, null, new { @class = "form-control" })
+
+        <label for="DateStart">DateStart:</label>
+        @Html.TextBoxFor(model => model.DateStart, new { @class = "form-control" })
+
+        @Html.HiddenFor(t => t.Id)
+    </div>
+
+    <div class="form-group" role="group">
+        @Html.ActionLink("Back to list", "List", null, new { @class = "btn btn-default" })
+        <button class="btn btn-primary" type="submit">Save data</button>
+    </div>
+}

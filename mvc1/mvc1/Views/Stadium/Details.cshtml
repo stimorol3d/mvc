@@ -1,4 +1,4 @@
-﻿@model mvc1.Models.Player
+﻿@model mvc1.Models.Stadium
 
 @{
     ViewBag.Title = "Details";
@@ -14,24 +14,18 @@
     </tr>
 
     <tr>
-        <td><b>Team</b></td>
-        <td>@(Model.TeamId.HasValue ? Model.Team.Name : "-")</td>
-    </tr>
-
-    <tr>
         <td><b>Name</b></td>
         <td>@Model.Name</td>
     </tr>
 
     <tr>
-        <td><b>Age</b></td>
-        <td>@Model.Age</td>
+        <td><b>City</b></td>
+        <td>@Model.City</td>
     </tr>
 
 </table>
 
 <div class="form-group" role="group">
     @Html.ActionLink("Back to list", "List", null, new { @class = "btn btn-default", @role = "button" })
-    @Html.ActionLink("Edit player", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary", @role = "button" })
+    @Html.ActionLink("Edit staidum", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary", @role = "button" })
 </div>
-

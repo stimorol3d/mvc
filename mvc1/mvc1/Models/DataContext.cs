@@ -1,4 +1,4 @@
-namespace mvc.Models
+namespace mvc1.Models
 {
     using System;
     using System.Data.Entity;

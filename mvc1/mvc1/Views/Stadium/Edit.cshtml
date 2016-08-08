@@ -1,4 +1,4 @@
-﻿@model mvc1.Models.Player
+﻿@model mvc1.Models.Stadium
 
 @{
     ViewBag.Title = "Edit";
@@ -9,15 +9,11 @@
 @using (Html.BeginForm())
 {
     <div class="form-group">
-
-        <label for="Team">Team:</label>
-        @Html.DropDownListFor(t => t.TeamId, ViewBag.teams as SelectList, "- no team -", new { @class = "form-control" } )
-
         <label for="Name">Name:</label>
         @Html.TextBoxFor(t => t.Name, new { @class = "form-control" })
 
-        <label for="Age">Age:</label>
-        @Html.TextBoxFor(t => t.Age, new { @class = "form-control" })
+        <label for="City">City:</label>
+        @Html.TextBoxFor(t => t.City, new { @class = "form-control" })
 
         @Html.HiddenFor(t => t.Id)
     </div>

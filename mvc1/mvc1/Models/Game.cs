@@ -1,4 +1,4 @@
-namespace mvc.Models
+namespace mvc1.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,6 +17,10 @@ namespace mvc.Models
 
         [Column(TypeName = "smalldatetime")]
         public DateTime DateStart { get; set; }
+
+        public int? StadiumId { get; set; }
+
+        public virtual Stadium Stadium { get; set; }
 
         public virtual Team Team { get; set; }
 

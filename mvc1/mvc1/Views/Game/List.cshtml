@@ -1,4 +1,4 @@
-﻿@model IEnumerable<mvc.Models.Game>
+﻿@model IEnumerable<mvc1.Models.Game>
 
 @{
     ViewBag.Title = "List";
@@ -10,8 +10,10 @@
 
     <tr>
         <th>Id</th>
-        <th>Team1</th>
-        <th>Team2</th>
+        <th>Team 1</th>
+        <th>Team 2</th>
+        <th>Stadium</th>
+        <th>City</th>
         <th>DateStart</th>
         <th>Actions</th>
     </tr>
@@ -22,6 +24,8 @@
             <td>@item.Id</td>
             <td>@item.Team.Name</td>
             <td>@item.Team1.Name</td>
+            <td>@item.Stadium.Name</td>
+            <td>@item.Stadium.City</td>
             <td>@item.DateStart</td>
             <td>
                 <div class="btn-group" role="group">

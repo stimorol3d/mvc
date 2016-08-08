@@ -1,0 +1,46 @@
+﻿@model mvc1.Models.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<table class="table">
+
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+
+    <tr>
+        <td><b>Team 1</b></td>
+        <td>@Model.Team.Name</td>
+    </tr>
+
+    <tr>
+        <td><b>Team 2</b></td>
+        <td>@Model.Team1.Name</td>
+    </tr>
+
+    <tr>
+        <td><b>Stadium</b></td>
+        <td>@Model.Stadium.Name</td>
+    </tr>
+
+    <tr>
+        <td><b>City</b></td>
+        <td>@Model.Stadium.City</td>
+    </tr>
+
+    <tr>
+        <td><b>DateStart</b></td>
+        <td>@Model.DateStart</td>
+    </tr>
+
+</table>
+
+<div class="form-group" role="group">
+    @Html.ActionLink("Back to list", "List", null, new { @class = "btn btn-default", @role = "button" })
+    @Html.ActionLink("Edit game", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary", @role = "button" })
+</div>

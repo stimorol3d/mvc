@@ -56,6 +56,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,8 +122,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Stadium.cs" />
     <Compile Include="Models\Team.cs" />
@@ -145,6 +147,10 @@
     <Content Include="Views\Team\List.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Game\List.cshtml" />
+    <Content Include="Views\Stadium\Details.cshtml" />
+    <Content Include="Views\Stadium\Edit.cshtml" />
+    <Content Include="Views\Game\Details.cshtml" />
+    <Content Include="Views\Game\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
